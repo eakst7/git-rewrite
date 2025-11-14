@@ -1,6 +1,15 @@
-rewrite — minimal Python package scaffold
+rewrite — amend any commit in git history
 
-This is a minimal Python package scaffold using the "src/" layout and modern packaging (pyproject.toml + setuptools). It includes pytest for testing, mypy for type checking, and ruff for linting. It's also configured for `uv` for fast dependency management.
+`rewrite` is a git utility that lets you amend any commit in your repository by adding the currently staged changes to it, with automatic rebasing of any descendants.
+
+It works like `git commit --amend`, but instead of only amending HEAD, you specify which commit to amend via its hash.
+
+## How it works
+
+1. Stage your changes with `git add`
+2. Run `rewrite <commit-id>` where `<commit-id>` is the commit you want to amend
+3. The changes are combined with that commit and the rest of the tree is rebased automatically
+4. If there are conflicts, git will pause the rebase for you to resolve them
 
 ## Installation
 
@@ -17,17 +26,34 @@ Install with uv for fast, reproducible builds:
     uv sync
     uv run rewrite
 
+## Using rewrite
+
+### Basic usage
+
+Amend a specific commit with staged changes:
+
+    git add <files>
+    rewrite <commit-id>
+
+### Examples
+
+Amend the commit `abc1234` with currently staged changes:
+
+    rewrite abc1234
+
+Use abbreviated commit hash (first 7 characters):
+
+    rewrite abc1234
+
+Amend with a new commit message:
+
+    rewrite abc1234 -m "New commit message"
+
+### With uv
+
+    uv run rewrite <commit-id>
+
 ## Running the CLI
-
-With pip (after installation):
-
-    rewrite
-
-With uv:
-
-    uv run rewrite
-
-This calls the `main()` entry point defined in `src/rewrite/__main__.py`.
 
 ## Development
 
