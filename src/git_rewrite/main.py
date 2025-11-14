@@ -49,6 +49,7 @@ def main(commit_id: str, message: str | None) -> None:
         result = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
             capture_output=True,
+            check=False,
             text=True,
         )
         if result.returncode == 0:
@@ -59,6 +60,7 @@ def main(commit_id: str, message: str | None) -> None:
         result = subprocess.run(
             ["git", "merge-base", "--is-ancestor", full_commit_id, "HEAD"],
             capture_output=True,
+            check=False,
             text=True,
         )
         if result.returncode != 0:
@@ -167,5 +169,3 @@ def main(commit_id: str, message: str | None) -> None:
     except FileNotFoundError:
         click.echo("Error: git not found. Make sure git is installed.", err=True)
         sys.exit(1)
-
-

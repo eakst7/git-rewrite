@@ -2,4 +2,4 @@
 
 __version__ = "0.1.0"
 
-from .main import main as main  # noqa: F401
+from .main import main  # noqa: F401
