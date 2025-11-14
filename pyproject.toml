@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "rewrite"
+name = "git-rewrite"
 version = "0.1.0"
-description = "A small example package created by the scaffold script"
+description = "A git utility to amend any commit in history with staged changes"
 authors = [ { name = "Your Name", email = "you@example.com" } ]
 readme = "README.md"
 license = { text = "MIT" }
@@ -13,7 +13,7 @@ requires-python = ">=3.14"
 dependencies = ["click>=8.0"]
 
 [project.scripts]
-rewrite = "rewrite:main"
+git-rewrite = "git_rewrite:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1"]
@@ -37,3 +37,6 @@ select = ["E", "F", "W", "I"]
 
 [dependency-groups]
 dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1"]
+
+[tool.setuptools.data-files]
+"share/man/man1" = ["man1/git-rewrite.1"]

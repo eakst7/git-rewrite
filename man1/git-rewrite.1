@@ -1,0 +1,32 @@
+.TH GIT-REWRITE 1 "13 November 2025" "git-rewrite 0.1.0" "User Commands"
+.SH NAME
+git-rewrite \- amend any commit in git history with staged changes
+.SH SYNOPSIS
+.B git-rewrite
+.I commit-id
+.RI [ options ]
+
+.SH DESCRIPTION
+.B git-rewrite
+is a small helper that amends a specific commit (identified by
+.I commit-id ) using the currently staged changes and then rebases any later
+commits to preserve history. It uses Git's fixup/autosquash workflow and
+pauses for manual conflict resolution if necessary.
+
+.SH OPTIONS
+.TP
+\fB-m, --message\fR \fItext\fR
+Replace the amended commit message with \fItext\fR.
+
+.SH EXAMPLES
+.TP
+Amend a commit with staged changes:
+.RS
+.B git-rewrite abc1234
+.RE
+
+.SH SEE ALSO
+git(1), git-rebase(1)
+
+.SH AUTHOR
+Written by the git-rewrite project.
