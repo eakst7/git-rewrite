@@ -16,7 +16,7 @@ dependencies = ["click>=8.0"]
 git-rewrite = "git_rewrite:main"
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1"]
+dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1", "help2man"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -36,7 +36,7 @@ exclude = [".venv", "build", "dist"]
 select = ["E", "F", "W", "I"]
 
 [dependency-groups]
-dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1"]
+dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.1", "help2man"]
 
 [tool.setuptools.data-files]
 "share/man/man1" = ["man1/git-rewrite.1"]

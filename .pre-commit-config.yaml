@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-manpage
+        name: Check manpage is up-to-date
+        entry: python tools/check_man.py
+        language: python
+        files: ^man1/git-rewrite\.1$
