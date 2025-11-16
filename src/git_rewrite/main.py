@@ -8,8 +8,11 @@ import tempfile
 
 import click
 
+from . import __version__ as _version
+
 
 @click.command()
+@click.version_option(version=_version, prog_name="git-rewrite")
 @click.argument("commit_id", required=True)
 @click.option(
     "-m",
